@@ -1,6 +1,6 @@
-Simple iPad memory game
+Memory-Tiles
+============
 
-My attempt at a game that improves short term and spatial memory. Feel free to fork. 
+Simple iOS point-based memory game 
 
-Technologies: Objective C, iOS 6+, UIKit, Core Graphics, MVC pattern (needless to say)
-
+ios 6, objective c, UIKit, Core Graphics, PaintCode, MVC Pattern
