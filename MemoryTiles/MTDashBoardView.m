@@ -44,7 +44,7 @@
     [path addClip];
     [[UIColor blackColor] setFill];
     [[UIColor whiteColor] setStroke];
-    [path fillWithBlendMode:kCGBlendModeNormal alpha:.1];
+    [path fillWithBlendMode:kCGBlendModeNormal alpha:.4];
     [path stroke];
 }
 
