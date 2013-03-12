@@ -24,7 +24,7 @@
     }
    // NSLog(@"current level: %d", self.curLevel);
     //hardcode level
-     self.curLevel = 4;
+     self.curLevel = 1;
     [self loadLevelSettings];
     [self loadSequences];
     
