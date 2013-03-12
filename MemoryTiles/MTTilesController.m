@@ -60,7 +60,9 @@
 }
 
 -(void)readyToDisplayNextLevel {
+    [self disableTileViews];
     [self.dashBoard showNextLevelPrompt];
+    [self displayNextLevel];
     //NSLog(@"Ready to load next level");
     
 }

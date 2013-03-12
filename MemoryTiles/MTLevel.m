@@ -135,22 +135,17 @@
 
 
 -(BOOL)doesTileIndex:(int)index matchSeqPosition:(int)pos{
-    if(([self.curSequence count]-1) != pos) {
-      //  NSLog(@"sequence count, %i", [self.curSequence count] );
-       // NSLog(@"position: %i", pos);
-       // NSLog(@"index: %i", index);
-        return [self.curSequence doesTileIndex:index matchSeqPosition:pos];
-    } else if (([self.curSequence count]-1) == pos) {
+    if(([self.curSequence count]-1) == pos) {
         if((self.curSeqNum + 1) == ([self.sequences count])) {
-                [self loadNextLevel];
-                [self.delegate readyToDisplayNextLevel];
-            }
+            [self loadNextLevel];
+            [self.delegate readyToDisplayNextLevel];
+        }
         else {
             [self.delegate readyToDisplayNextSequence];
         }
-        return true;
+    } else {
+        return [self.curSequence doesTileIndex:index matchSeqPosition:pos];
     }
-    return [self.curSequence doesTileIndex:index matchSeqPosition:pos];
 }
 
 @end
