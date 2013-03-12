@@ -137,7 +137,6 @@
 -(BOOL)doesTileIndex:(int)index matchSeqPosition:(int)pos{
     if(([self.curSequence count]-1) == pos) {
         if((self.curSeqNum + 1) == ([self.sequences count])) {
-            [self loadNextLevel];
             [self.delegate readyToDisplayNextLevel];
         }
         else {

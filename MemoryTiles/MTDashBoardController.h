@@ -16,6 +16,7 @@
 -(void)didPressPlay;
 -(void)didPressDisplayNextLevel;
 -(void)didPressDisplayNextSequence;
+-(void)loadNextLevel;
 @end
 
 @interface MTDashBoardController : UIViewController
@@ -38,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalNumTilesInSequence;
 @property (nonatomic) NSInteger numTilesInSequence;
 @property (weak, nonatomic) IBOutlet UIButton *nextLevelButton;
+- (IBAction)loadNextLevel:(id)sender;
 
 
 -(void)updateSequence:(NSInteger)curSequenceNum;

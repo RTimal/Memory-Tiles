@@ -41,6 +41,7 @@
     }
     [self.dashBoard didStopPlayingSequence];
     self.seqPositionCount = 0;
+    [self enableTileViews];
    // NSLog(@"finished sequence");
 }
 
@@ -62,9 +63,14 @@
 -(void)readyToDisplayNextLevel {
     [self disableTileViews];
     [self.dashBoard showNextLevelPrompt];
-    [self displayNextLevel];
+   // [self displayNextLevel];
     //NSLog(@"Ready to load next level");
     
+}
+
+-(void)loadNextLevel {
+    [self.level loadNextLevel];
+    [self displayNextLevel];
 }
 
 -(void)readyToDisplayNextSequence {
@@ -77,15 +83,15 @@
 
 -(void)displayNextLevel {
     [self.dashBoard updateLevel:[self.level curLevel]];
-    _seqPositionCount = 0;
-     [self.dashBoard updateSequence:[self.level curSeqNum]];
+    self.seqPositionCount = 0;
+    [self.dashBoard updateSequence:[self.level curSeqNum]];
     self.view.userInteractionEnabled = NO;
     [self tearDown];
-    [self.view setNeedsDisplay];
     [self setup];
-     [self.dashBoard setNumTilesInSequence: [self.level sequenceLength]];
+    [self.dashBoard setNumTilesInSequence: [self.level sequenceLength]];
     self.view.userInteractionEnabled = YES;
     self.dashBoard.playButton.userInteractionEnabled = YES;
+    [self.dashBoard setCurrenttPositionInSequence:self.seqPositionCount];
 }
 
 -(void)displayNextSequence {

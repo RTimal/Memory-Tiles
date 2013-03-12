@@ -57,7 +57,14 @@
 }
 
 -(void)showNextLevelPrompt {
-  
+    self.nextLevelButton.hidden = NO;
+    self.playButton.hidden = YES;
+}
+
+- (IBAction)loadNextLevel:(id)sender {
+    [self.delegate loadNextLevel];
+    self.playButton.hidden = NO;
+    self.nextLevelButton.hidden = YES;
 }
 
 -(void)showNextSequencePrompt {
