@@ -11,15 +11,17 @@
 #import "MTDashBoardView.h"
 #import "FXLabel.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MTOptionsController.h"
 
 @protocol dashBoardDelegate <NSObject>
 -(void)didPressPlay;
 -(void)didPressDisplayNextLevel;
 -(void)didPressDisplayNextSequence;
 -(void)loadNextLevel;
+-(void)resetGame;
 @end
 
-@interface MTDashBoardController : UIViewController
+@interface MTDashBoardController : UIViewController<mtOptionsDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *tileCounter;
 @property (weak, nonatomic) IBOutlet UILabel *loadNextSequence;
 @property (weak, nonatomic) IBOutlet UIButton *nextSequence;

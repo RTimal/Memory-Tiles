@@ -16,6 +16,7 @@
 #import "MTDashBoardController.h"
 #import <QuartzCore/QuartzCore.h>
 
+
 @interface MTTilesController : UIViewController<tileViewDelegate, levelDelegate, dashBoardDelegate>
 @property (nonatomic, retain) NSMutableArray *tiles;
 @property (nonatomic, retain) NSMutableArray *tileViews; 
@@ -30,6 +31,6 @@
 @property (nonatomic) int lastSelectedIndex;
 
 -(void)reachedEndOfGame;
-
+-(void)resetGame;
 
 @end

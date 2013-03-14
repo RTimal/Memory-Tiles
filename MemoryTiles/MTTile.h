@@ -16,4 +16,6 @@
 @property (nonatomic) int index;
 @property (nonatomic, strong) UIColor *color;
 
+-(UIColor*)getRandomColor;
+
 @end

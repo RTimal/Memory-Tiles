@@ -134,6 +134,12 @@
 
 }
 
+-(void)reset {
+    self.curLevel = 1;
+    [self loadLevelSettings];
+    [self loadSequences];
+    [self.defaults setInteger:self.curLevel forKey:@"CurrentLevel"];
+}
 
 -(BOOL)doesTileIndex:(int)index matchSeqPosition:(int)pos{
     if(([self.curSequence count]-1) == pos) {

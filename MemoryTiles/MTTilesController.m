@@ -97,6 +97,7 @@
 -(void)displayNextSequence {
     [self tearDown];
     [self setup];
+    
     [self.level loadNextSequence];
     [self.dashBoard setNumTilesInSequence: [self.level sequenceLength]];
     [self enableTileViews];
@@ -192,6 +193,7 @@
     [self loadTileViews];
 }
 
+
 -(void)loadTiles {
     _tiles = [[NSMutableArray alloc] initWithCapacity:_numTiles];
     float curRow = 0;
@@ -223,6 +225,13 @@
 
 #pragma mark cleanup
 
+-(void)resetGame {
+    [self.level reset];
+    [self displayNextLevel];
+    [self.dashBoard setNumTilesInSequence: [self.level sequenceLength]];
+    [self.dashBoard setCurrenttPositionInSequence:self.seqPositionCount];
+}
+
 -(void)tearDown {
     for(MTTileView *tileView  in self.tileViews){
         [tileView removeFromSuperview];
@@ -238,6 +247,8 @@
 -(NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
+
+
 
 -(void)loadTileViews {
     _tileViews = [[NSMutableArray alloc] initWithCapacity:_numTiles];

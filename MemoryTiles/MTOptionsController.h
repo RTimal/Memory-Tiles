@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MTOptionsController : UITableViewController
+@protocol mtOptionsDelegate <NSObject>
+
+-(void)resetGame;
+
+@end
+
+@interface MTOptionsController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) id<mtOptionsDelegate> delegate;
 
 @end

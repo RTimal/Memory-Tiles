@@ -70,5 +70,6 @@
 -(BOOL)doesTileIndex:(int)index matchSeqPosition:(int)pos;
 -(BOOL)sequenceLength;
 -(void)loadNextLevel;
+-(void)reset;
 
 @end

@@ -65,6 +65,7 @@
 - (IBAction)showOptions:(id)sender {
 
   MTOptionsController *options = [[MTOptionsController alloc]initWithNibName:@"MTOptionsController" bundle:nil];
+    options.delegate = self;
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:options];
     nav.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -73,6 +74,17 @@
     }];
     
 }
+
+-(void)resetGame {
+    [self.delegate resetGame];
+    [self reset];
+}
+-(void)reset {
+    self.playButton.alpha = 1;
+    self.nextSequence.alpha = 0;
+    self.nextLevelButton.alpha = 0;
+}
+
 
 - (IBAction)loadNextLevel:(id)sender {
     [self.delegate loadNextLevel];
@@ -151,8 +163,6 @@
     self.scoreDelta.alpha = 0;
     [UIView commitAnimations];
 }
-
-
 
 -(void)startingAnimation {
     [self.view.layer removeAllAnimations];
