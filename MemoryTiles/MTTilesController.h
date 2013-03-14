@@ -14,6 +14,7 @@
 #import "MTDashBoardView.h"
 #import "MTLevel.h"
 #import "MTDashBoardController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MTTilesController : UIViewController<tileViewDelegate, levelDelegate, dashBoardDelegate>
 @property (nonatomic, retain) NSMutableArray *tiles;

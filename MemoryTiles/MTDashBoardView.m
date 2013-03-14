@@ -19,7 +19,6 @@
     return self;
 }
 
-
 -(void)awakeFromNib {
     [super awakeFromNib];
     self.clipsToBounds = NO;
@@ -29,14 +28,6 @@
     self.layer.shadowRadius = 20;
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
     self.layer.shadowPath = shadowPath.CGPath;
-}
-
--(void)addMiniTileWithColor:(UIColor *)color andCorrectStatus:(BOOL)rightTile {
-//add a mini tile if u want to.
-}
-
--(void)clearMiniTileView {
-    
 }
 
 -(void)drawRect:(CGRect)rect{

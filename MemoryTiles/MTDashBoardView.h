@@ -17,6 +17,4 @@
 @property(nonatomic) BOOL sequencePlaying;
 @property(nonatomic) BOOL sequenceStarted;
 
--(void)addMiniTileWithColor:(UIColor*)color andCorrectStatus:(BOOL)rightTile;
--(void)clearMiniTileView;
 @end

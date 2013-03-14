@@ -41,7 +41,6 @@
 #import "MTSequence.h"
 
 @protocol levelDelegate <NSObject>
-
 -(void)sequenceDidFinishPlaying;
 -(void)sequenceDidStartPlaying;
 -(void)sequencePlayingIndex:(int)index;
@@ -57,7 +56,7 @@
 @property (nonatomic) int curSeqNum;
 @property (nonatomic, retain) MTSequence *curSequence;
 @property (nonatomic) NSMutableArray* sequences;
-@property (nonatomic, retain)NSUserDefaults *defaults;
+@property (nonatomic, retain) NSUserDefaults *defaults;
 @property (nonatomic) int ntls;
 @property (nonatomic) int numPerRow;
 @property (nonatomic) int numRows;
@@ -71,6 +70,5 @@
 -(BOOL)doesTileIndex:(int)index matchSeqPosition:(int)pos;
 -(BOOL)sequenceLength;
 -(void)loadNextLevel;
-
 
 @end

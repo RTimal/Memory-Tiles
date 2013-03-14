@@ -93,6 +93,7 @@
     }
     self.curSeqNum = 0;
     self.curSequence = self.sequences[0];
+
 }
 
 -(void)loadNextSequence {

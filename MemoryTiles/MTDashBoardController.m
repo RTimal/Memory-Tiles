@@ -7,6 +7,7 @@
 //
 
 #import "MTDashBoardController.h"
+#import "MTOptionsController.h"
 
 @interface MTDashBoardController ()
 
@@ -61,6 +62,18 @@
     self.playButton.hidden = YES;
 }
 
+- (IBAction)showOptions:(id)sender {
+
+  MTOptionsController *options = [[MTOptionsController alloc]initWithNibName:@"MTOptionsController" bundle:nil];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:options];
+    nav.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:nav animated:YES completion:^{
+        
+    }];
+    
+}
+
 - (IBAction)loadNextLevel:(id)sender {
     [self.delegate loadNextLevel];
     self.playButton.hidden = NO;
@@ -84,7 +97,6 @@
     NSInteger currentScore = [self.score.text integerValue];
     currentScore += scoreDelta;
     self.score.text = [NSString stringWithFormat:@"%i",currentScore];
-    
     if([self.score.text integerValue] < 0){
         self.score.text = [NSString stringWithFormat:@"%i", 0];
     }
@@ -92,6 +104,7 @@
     if([self.highScore.text integerValue] < [self.score.text integerValue]) {
         self.highScore.text = self.score.text;
         [self saveHighScore];
+        [self showPopUp:@"New High Score"];
     }
     
     [self popUpDelta:scoreDelta];
@@ -105,6 +118,21 @@
         self.scoreDelta.textColor = [UIColor greenColor];
         [self showPopUpDelta:[NSString stringWithFormat:@"+%i", delta]];
     }
+}
+
+-(void)showPopUp:(NSString*)text {
+    self.highScoreLabel.frame = CGRectMake(700.f, 36.f, 274.f, 34.f);
+    self.highScoreLabel.alpha = 1;
+    [UIView beginAnimations:@"popup2" context:nil];
+    [UIView setAnimationDuration:.8f];
+    [UIView setAnimationDelegate: self];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationWillStartSelector:@selector(startingPopupAnimation)];
+    [UIView setAnimationDidStopSelector:@selector(stoppedPopupAnimation)];
+    self.highScoreLabel.frame = CGRectOffset(self.highScoreLabel.frame, 0.f, -500.f);
+    self.highScoreLabel.alpha = 0;
+    //self.highScoreLabel.alpha = 0;
+    [UIView commitAnimations];
 }
 
 -(void)showPopUpDelta:(NSString *)delta {

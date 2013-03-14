@@ -172,6 +172,9 @@
     [self.dashBoard setNumTilesInSequence: [self.level sequenceLength]];
 }
 
+//resize frame cause it gets messed up when it comes out of storyboard
+
+
 -(void)setup {
     if(!self.level) {
         self.level = [[MTLevel alloc] init];

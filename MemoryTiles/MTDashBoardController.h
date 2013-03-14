@@ -21,9 +21,7 @@
 
 @interface MTDashBoardController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *tileCounter;
-
 @property (weak, nonatomic) IBOutlet UILabel *loadNextSequence;
-- (IBAction)loadNextSequence:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nextSequence;
 @property (weak, nonatomic) IBOutlet UILabel *playingSequence;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
@@ -39,9 +37,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalNumTilesInSequence;
 @property (nonatomic) NSInteger numTilesInSequence;
 @property (weak, nonatomic) IBOutlet UIButton *nextLevelButton;
+@property (weak, nonatomic) IBOutlet UILabel *highScoreLabel;
+@property (weak, nonatomic) IBOutlet UIButton *openSideBar;
+
+- (IBAction)showOptions:(id)sender;
 - (IBAction)loadNextLevel:(id)sender;
-
-
+- (IBAction)loadNextSequence:(id)sender;
 -(void)updateSequence:(NSInteger)curSequenceNum;
 -(void)updateScore:(NSInteger)scoreDelta;
 -(void)updateLevel:(NSInteger)level;
