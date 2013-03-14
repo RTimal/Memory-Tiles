@@ -139,13 +139,13 @@
     if(([self.curSequence count]-1) == pos) {
         if((self.curSeqNum + 1) == ([self.sequences count])) {
             [self.delegate readyToDisplayNextLevel];
+            
         }
         else {
             [self.delegate readyToDisplayNextSequence];
         }
-    } else {
-        return [self.curSequence doesTileIndex:index matchSeqPosition:pos];
     }
+     return [self.curSequence doesTileIndex:index matchSeqPosition:pos];
 }
 
 @end

@@ -22,8 +22,8 @@
 -(void)tileDidGetSelected:(MTTileView *)tileView {
     BOOL matched = [self.level doesTileIndex:tileView.index matchSeqPosition:_seqPositionCount];
     [self respondToTileSelection:matched];
-    _seqPositionCount++;
-     [self.dashBoard setCurrenttPositionInSequence:self.seqPositionCount];
+     [self.dashBoard setCurrenttPositionInSequence: ++self.seqPositionCount];
+    NSLog(@"%i", self.seqPositionCount);
 }
 
 -(void)respondToTileSelection:(BOOL)matched {
