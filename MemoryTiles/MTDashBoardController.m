@@ -141,7 +141,6 @@
     self.scoreDelta.frame = CGRectMake(640.f, -40.f, 80.f, 80.f);
      self.scoreDelta.alpha = 1;
     [self.dashBoardView addSubview:self.scoreDelta];
-    
     [UIView beginAnimations:@"popup" context:nil];
     [UIView setAnimationDuration:.5f];
     [UIView setAnimationDelegate: self];
